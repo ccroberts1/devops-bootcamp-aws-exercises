@@ -6,5 +6,5 @@ COPY app/* /usr/app
 WORKDIR /usr/app
 EXPOSE 3000
 
-RUN npm install
+RUN npm ci
 CMD ["node", "server.js"]
