@@ -42,7 +42,7 @@ pipeline {
             }
             steps {
                 script {
-                    echo "Building Docker image.."
+                    echo "Building Docker image"
                     withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                         sh "docker build -t ccroberts/demo-app:${IMAGE_NAME} ."
                         sh 'echo $PASS | docker login -u ${USER} --password-stdin'
