@@ -17,9 +17,9 @@ pipeline {
         }
         stage('Increment version') {
             when {
-                        expression {
-                          return env.GIT_BRANCH == "master"
-                        }
+                expression {
+                  return env.GIT_BRANCH == "master"
+                }
             }
             steps {
                 dir("app") {
@@ -36,9 +36,9 @@ pipeline {
         }
         stage('Build and push Docker image'){
             when {
-                        expression {
-                          return env.GIT_BRANCH == "master"
-                        }
+                expression {
+                  return env.GIT_BRANCH == "master"
+                }
             }
             steps {
                 script {
@@ -59,7 +59,7 @@ pipeline {
             }
             steps {
                 script {
-                echo "Deploying to EC2 instance..."
+                    echo "Deploying to EC2 instance..."
                     def shellCmd = "bash ./server-cmds.sh ${IMAGE_NAME}"
                     def ec2Instance = "ec2-user@44.193.30.29"
 
