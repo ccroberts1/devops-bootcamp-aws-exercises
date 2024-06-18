@@ -61,7 +61,7 @@ pipeline {
             steps {
                 script {
                     echo "Deploying to EC2 instance..."
-                    def shellCmd = "bash ./server-cmds.sh ${IMAGE_NAME}"
+                    def shellCmd = "bash ./server-cmds.sh aws-${IMAGE_NAME}"
                     def ec2Instance = "ec2-user@44.193.30.29"
 
                     sshagent(['ec2-server-key']) {
@@ -90,7 +90,7 @@ pipeline {
 
                         sh "git add ."
                         sh 'git commit -m "ci:version bump"'
-                        sh "git push https://${USER}:${PASS}@github.com/${USER}/devops-bootcamp-aws-exercises"
+                        sh "git push https://${USER}:${PASS}@github.com/${USER}/devops-bootcamp-aws-exercises HEAD:master"
                     }
                 }
             }
