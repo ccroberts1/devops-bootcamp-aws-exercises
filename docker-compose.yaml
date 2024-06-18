@@ -1,4 +1,3 @@
-version: '3.8'
 services:
     nodejs-app:
       image: ccroberts1/demo-app:aws-1.4.0-20
