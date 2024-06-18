@@ -1,6 +1,6 @@
 version: '3.8'
 services:
     nodejs-app:
-      image: ccroberts1/demo-app
+      image: ccroberts1/demo-app:aws-1.4.0-20
       ports:
         - 3000:3000
