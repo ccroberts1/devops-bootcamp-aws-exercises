@@ -1,5 +1,7 @@
 services:
     nodejs-app:
       image: ccroberts1/demo-app:aws-1.4.0-20
+      volumes:
+        - $HOME/.docker/config.json:/root/.docker/config.json
       ports:
         - 3000:3000
